@@ -35,8 +35,8 @@
             --border-btn-color: #2196f3;
             --scroll-top-btn-hover-bgColor: #2196f3;
             --scroll-top-btn-hover-color: white;
-            --them-changer-bgColor: #333;
-            --them-changer-color: white;
+            --theme-changer-bgColor: #333;
+            --theme-changer-color: white;
         }
         .dark-mode{
             --main-bgColor: #333;
@@ -67,8 +67,8 @@
             --border-btn-color: #2196f3;
             --scroll-top-btn-hover-bgColor: #2196f3;
             --scroll-top-btn-hover-color: white;
-            --them-changer-bgColor: #eee;
-            --them-changer-color: black;
+            --theme-changer-bgColor: white;
+            --theme-changer-color: #333;
         }
         * {
             box-sizing: border-box;
@@ -319,7 +319,7 @@
         .show{
             right: 20px;
         }
-        .them-changer{
+        .theme-changer{
             width: 50px;
             height: 40px;
             position: fixed;
@@ -327,10 +327,10 @@
             border-top-right-radius: 25%;
             border-bottom-right-radius: 25%;
             cursor: pointer;
-            background-color: var(--them-changer-bgColor);
+            background-color: var(--theme-changer-bgColor);
         }
-        .them-changer i{
-            color: var(--them-changer-color);
+        .theme-changer i{
+            color: var(--theme-changer-color);
             margin-left: 18px;
         }
     </style>
@@ -368,7 +368,7 @@
                         and Start the Game, the counter will countdown to zero.(you have +3 seconds for the first word)</p>
                     <p>- If the counter finished before writing the word or you didn't wrote it right,
                         you lose!.</p>
-                        <p>- Your score, level and the date will be saved and you can see them later.</p>
+                        <p>- Your score, level and the date will be saved and you can see theme later.</p>
                 </div>
                 <!-- Start ScoreSheet  -->
                 <table class="score-sheet">
@@ -385,9 +385,9 @@
             <button class="scroll-top-btn">UP</button>
             <!-- End Scroll to top button  -->
 
-            <!-- Start them Changer button -->
-            <button class="them-changer"><i class="gg-moon"></i></button>
-            <!-- End them Changer button -->
+            <!-- Start theme Changer button -->
+            <button class="theme-changer"><i class="gg-moon"></i></button>
+            <!-- End theme Changer button -->
     </div>
         <!-- End The Game  -->
         
@@ -480,6 +480,11 @@
                 arrLevel = hardWords;
             }
 
+            if (sessionStorage.getItem("theme") === "dark") {
+                body.classList.add("dark-mode");
+                let themeChanger = document.querySelector(".theme-changer");
+                themeChanger.innerHTML = "<i class='gg-sun'></i>";
+            }
             sessionStorage.clear();
             startBtn.click();
         }
@@ -578,7 +583,7 @@
                         sessionStorage.setItem("level", selectLevels.value);
                         location.reload();
                     }
-
+                    
                     //Set score with the date to localStorage
                     if (localStorage.length) { //if there is score saved in localStorage
                         let scores = JSON.parse(localStorage.getItem("scores"));
@@ -596,18 +601,19 @@
                     div.appendChild(divText);
                     div.className = "failed";
                     finish.appendChild(div);
-
+                    
                     //Create play again button
                     let playAgainBtn = document.createElement("button");
                     playAgainBtn.className = "play-again";
                     let btnText = document.createTextNode("Play Again");
                     playAgainBtn.appendChild(btnText);
-
+                    
                     finish.appendChild(playAgainBtn);
-
+                    
                     playAgainBtn.onclick = function () {
                         sessionStorage.setItem("replaying" , "true");
                         sessionStorage.setItem("level" , selectLevels.value);
+                        sessionStorage.setItem("theme", body.classList.contains("dark-mode")? "dark" : "light");
                         location.reload();
                     }
                     
@@ -837,7 +843,7 @@
         if (!document.querySelector(".no-score-saved")) {
             let unsortedScores = document.querySelectorAll(".score-sheet tbody tr td:nth-child(2)");
             
-            //Get the scores and stor them in the sortedValues array
+            //Get the scores and stor theme in the sortedValues array
             let sortedValues = [];
             unsortedScores.forEach(e => {
                 sortedValues.push(e.innerHTML[0])
@@ -880,7 +886,7 @@
 
 //Before create that function i used this way to get the result//
         //     let unsortedDates = document.querySelectorAll(".score-sheet tbody tr td:last-child");
-        //     //Get the scores and stor them in the sortedValues array
+        //     //Get the scores and stor theme in the sortedValues array
         //     let sortedValues = [];           
         //     unsortedDates.forEach(e => {
         //         let dateContent = e.innerHTML.replace("<br>", " ");
@@ -931,14 +937,14 @@
     };
 
     //Change Them
-    let themChanger = document.querySelector(".them-changer");
+    let themeChanger = document.querySelector(".theme-changer");
     let body = document.querySelector("body");
-    themChanger.onclick = () => {
+    themeChanger.onclick = () => {
         if (body.classList.contains("dark-mode")) {
-            themChanger.innerHTML = "<i class='gg-moon'></i>";
+            themeChanger.innerHTML = "<i class='gg-moon'></i>";
             body.classList.remove("dark-mode")
         } else {
-            themChanger.innerHTML = "<i class='gg-sun'></i>";
+            themeChanger.innerHTML = "<i class='gg-sun'></i>";
             body.classList.add("dark-mode")
         }
     };
