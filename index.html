@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,7 @@
     <link href='https://css.gg/moon.css' rel='stylesheet'>
     <style>
         :root {
-            --main-bgColor: #eee;    
+            --main-bgColor: #eee;
             --second-color: #009688;
             --main-bg: #eee;
             --name-bgColor: #2196f3;
@@ -17,9 +18,9 @@
             --msg-bgColor: white;
             --bg-msg: white;
             --word-color: black;
-            --startBtn-bgColor : #009688;
-            --startBtn-bgColor-hover : #108c81;
-            --caret-color : #2196f3;
+            --startBtn-bgColor: #009688;
+            --startBtn-bgColor-hover: #108c81;
+            --caret-color: #2196f3;
             --upcomingWords-bgColor: white;
             --control-color: black;
             --control-bgColor: white;
@@ -38,7 +39,8 @@
             --theme-changer-bgColor: #333;
             --theme-changer-color: white;
         }
-        .dark-mode{
+
+        .dark-mode {
             --main-bgColor: #333;
             --second-color: #009688;
             --main-bg: #000000b3;
@@ -48,13 +50,13 @@
             --msg-bgColor: #000000b3;
             --msg-color: #2196f3;
             --word-color: #eee;
-            --startBtn-bgColor : #2196f3;
-            --startBtn-bgColor-hover : #2d8ad6;
-            --caret-color : black;
+            --startBtn-bgColor: #2196f3;
+            --startBtn-bgColor-hover: #2d8ad6;
+            --caret-color: black;
             --upcomingWords-bgColor: #000000b3;
             --control-color: white;
             --control-bgColor: #000000b3;
-            --bg-p: #000000b3; 
+            --bg-p: #000000b3;
             --p-color: #a2a2a2;
             --gameInstru-table: #333;
             --span-bgColor: #2196f3;
@@ -70,28 +72,57 @@
             --theme-changer-bgColor: white;
             --theme-changer-color: #333;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
             font-family: "Open Sans", sans-serif;
             color: var(--word-color);
         }
+
         .game {
             background-color: var(--main-bgColor);
             min-height: 100vh;
         }
+
         div,
-        span{
+        span {
             border-radius: 4px;
         }
+
         .container {
             margin: auto;
             max-width: 900px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
-        .name{
+
+        /*  Small  */
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        /* Medium */
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+
+        /* Large */
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+
+        .name {
             text-align: center;
             padding: 20px;
             font-weight: bold;
@@ -99,23 +130,28 @@
             color: var(--name-color);
             background-color: var(--name-bgColor);
         }
-        .message{
+
+        .message {
             text-align: center;
             background-color: var(--msg-bgColor);
             padding: 10px;
             margin: 10px 0;
             font-size: 19px;
         }
-        .message span{
+
+        .message span {
             font-weight: bold;
         }
-        .message span::before{
+
+        .message span::before {
             content: "[";
         }
-        .message span::after{
+
+        .message span::after {
             content: "]";
         }
-        select{
+
+        select {
             color: var(--second-color);
             text-align: center;
             font-weight: bold;
@@ -123,17 +159,21 @@
             border-radius: 8px;
             border-color: var(--second-color);
         }
+
         select:focus,
-        .input:focus{
+        .input:focus {
             outline: none;
         }
-        select:checked{
+
+        select:checked {
             text-align: left;
         }
-        .seconds{
+
+        .seconds {
             color: var(--second-color);
         }
-        .start{
+
+        .start {
             text-align: center;
             cursor: pointer;
             padding: 20px;
@@ -143,10 +183,12 @@
             font-size: 20px;
             transition: 0.5s;
         }
-        .start:hover{
+
+        .start:hover {
             background-color: var(--startBtn-bgColor-hover);
         }
-        .the-word{
+
+        .the-word {
             text-align: center;
             color: #2196f3;
             font-size: 60px;
@@ -154,7 +196,8 @@
             text-transform: capitalize;
             user-select: none;
         }
-        .input{
+
+        .input {
             width: 100%;
             margin: 10px 0;
             height: 50px;
@@ -166,7 +209,8 @@
             caret-color: var(--caret-color);
             text-transform: capitalize;
         }
-        .upcoming-words{
+
+        .upcoming-words {
             padding: 25px;
             background-color: var(--upcomingWords-bgColor);
             text-transform: capitalize;
@@ -176,38 +220,45 @@
             justify-content: center;
             user-select: none;
         }
-        .upcoming-words span{
+
+        .upcoming-words span {
             color: var(--span-color);
             background-color: var(--span-bgColor);
             margin: 4px;
             padding: 5px;
             border-radius: 4px;
         }
-        .control{
+
+        .control {
             display: flex;
             justify-content: space-between;
             background-color: var(--control-bgColor);
             color: var(--control-color);
             padding: 15px;
         }
-        .control span{
+
+        .control span {
             color: var(--second-color);
             font-weight: bold;
         }
-        .finish{
+
+        .finish {
             display: flex;
             justify-content: center;
             font-size: 40px;
             padding: 15px;
             font-weight: bold;
         }
-        .failed{
+
+        .failed {
             color: red;
         }
-        .success{
+
+        .success {
             color: #0fd30f;
         }
-        .play-again{
+
+        .play-again {
             margin-left: 15px;
             padding: 0 10px;
             border: 1px solid #a2a2a2;
@@ -219,35 +270,42 @@
             cursor: pointer;
             background-color: var(--playAgain-bgColor);
         }
-        .play-again:hover{
+
+        .play-again:hover {
             background-color: var(--playAgain-hover-bgColor);
             color: var(--playAgain-hover-color);
             border: 1px solid var(--playAgain-hover-bgColor);
         }
-        table{
+
+        table {
             border-spacing: 0;
         }
-        .game-instructions{
+
+        .game-instructions {
             background: #bcbcbc3d;
             padding: 20px;
             text-transform: capitalize;
         }
-        .game-instructions span{
+
+        .game-instructions span {
             font-weight: bold;
             font-size: 19px;
             display: block;
             margin-bottom: 10px;
         }
-        .game-instructions p{
+
+        .game-instructions p {
             padding: 10px;
             margin-bottom: 10px;
             color: var(--p-color);
             background-color: var(--bg-p);
         }
-        .game-instructions table{
+
+        .game-instructions table {
             margin: 15px auto 0px;
         }
-        .score-sheet{
+
+        .score-sheet {
             width: 100%;
             margin-top: 30px;
             border: 1px solid white;
@@ -259,7 +317,8 @@
             padding: 10px;
             border: 0;
         }
-        .score-sheet thead th{
+
+        .score-sheet thead th {
             font-weight: bold;
             font-size: 17px;
             text-transform: uppercase;
@@ -269,35 +328,43 @@
             letter-spacing: 0px;
             transition: 0.5s;
         }
+
         .start,
-        .score-sheet th{
+        .score-sheet th {
             user-select: none;
         }
-        .score-sheet thead th:not(:last-child){
+
+        .score-sheet thead th:not(:last-child) {
             border-right: 1px solid black;
         }
-        .score-sheet thead th:hover{
-            background-color: ##00b0ff;
+
+        .score-sheet thead th:hover {
+            background-color: #00b0ff;
             cursor: pointer;
             padding-top: 0;
         }
-        .score-sheet tbody{
+
+        .score-sheet tbody {
             color: black;
             text-transform: capitalize;
             font-size: 15px;
         }
-        .score-sheet td{
+
+        .score-sheet td {
             transition: 0.3s;
             padding: 5px;
             font-size: 17px;
         }
-        .score-sheet tr:not(:last-child){
+
+        .score-sheet tr:not(:last-child) {
             border-bottom: 1px solid black;
         }
-        .score-sheet td:not(:last-child){
+
+        .score-sheet td:not(:last-child) {
             border-right: 1px solid black;
         }
-        .scroll-top-btn{
+
+        .scroll-top-btn {
             color: var(--scroll-top-color);
             background-color: var(--scroll-top-bgColor);
             padding: 10px;
@@ -311,14 +378,17 @@
             right: -100%;
             transition: 0.3s;
         }
-        .scroll-top-btn:hover{
+
+        .scroll-top-btn:hover {
             background-color: var(--scroll-top-btn-hover-bgColor);
             color: var(--scroll-top-btn-hover-Color);
         }
-        .show{
+
+        .show {
             right: 20px;
         }
-        .theme-changer{
+
+        .theme-changer {
             width: 50px;
             height: 40px;
             position: fixed;
@@ -328,12 +398,14 @@
             cursor: pointer;
             background-color: var(--theme-changer-bgColor);
         }
-        .theme-changer i{
+
+        .theme-changer i {
             color: var(--theme-changer-color);
             margin-left: 18px;
         }
     </style>
 </head>
+
 <body>
     <!-- Start The Game  -->
     <div class="game">
@@ -341,7 +413,7 @@
         <div class="container">
             <div class="message">
                 You Are Playing On
-                    <select id="selectLevels">
+                <select id="selectLevels">
                     <optgroup>
                         <option value="Easy">Easy</option>
                         <option value="Normal">Normal</option>
@@ -350,129 +422,157 @@
                 </select> Level
                 & You Have <span class="seconds"></span> Seconds To Type The Word
             </div>
-                <div class="start">Start Playing</div>
-                <div class="the-word"></div>
-                <input type="text" class="input" />
-                <div class="upcoming-words">Words Will be shown Here !</div>
-                <div class="control">
-                    <div class="time">Time Left: <span></span> Seconds</div>
-                    <div class="score">
-                        Score: <span class="got">0</span> From <span class="total"></span>
-                    </div>
+            <div class="start">Start Playing</div>
+            <div class="the-word"></div>
+            <input type="text" class="input" />
+            <div class="upcoming-words">Words Will be shown Here !</div>
+            <div class="control">
+                <div class="time">Time Left: <span></span> Seconds</div>
+                <div class="score">
+                    Score: <span class="got">0</span> From <span class="total"></span>
                 </div>
-                <div class="finish"></div>
-                <div class="game-instructions">
-                    <span>Game Instructions:</span>
-                    <p>- When you choose a level Or let the default level(Easy) 
-                        and Start the Game, the counter countdown to zero.(you have +3 seconds for the first word in every new play)</p>
-                    <p>- A set of words will appear to you based on the level you have chosen.</p>
-                    <p>- If the counter finished before writing the word or you didn't wrote it right,
-                        you lose!.</p>
-                    <p>- Your score, level and the date will be saved in the score sheet table in the below and you can see them later.</p>
-                    <p>- The results in the score sheet table are arranged in descending order with respect to the date.</p>
-                    <p>- You can arrange the scores by (level - score - date) by clicking on any of them.</p>
-                </div>
-                <!-- Start ScoreSheet  -->
-                <table class="score-sheet">
-                    <thead>
-                        <th>level</th>
-                        <th>score</th>
-                        <th>date</th>   
-                    </thead>
-                    <td class="no-score-saved" colspan="3">your score will be shown here!</td>
-                </table>
-                <!-- End ScoreSheet  -->
             </div>
-            <!-- Start Scroll to top button  -->
-            <button class="scroll-top-btn">UP</button>
-            <!-- End Scroll to top button  -->
+            <div class="finish"></div>
+            <div class="game-instructions">
+                <span>Game Instructions:</span>
+                <p>- When you choose a level Or let the default level(Easy)
+                    and Start the Game, the counter countdown to zero.(you have +3 seconds for the first word in every
+                    new play)</p>
+                <p>- A set of words will appear to you based on the level you have chosen.</p>
+                <p>- If the counter finished before writing the word or you didn't wrote it right,
+                    you lose!.</p>
+                <p>- Your score, level and the date will be saved in the score sheet table in the below and you can see
+                    them later.</p>
+                <p>- The results in the score sheet table are arranged in descending order with respect to the date.</p>
+                <p>- You can arrange the scores by (level - score - date) by clicking on any of them.</p>
+            </div>
+            <!-- Start ScoreSheet  -->
+            <table class="score-sheet">
+                <thead>
+                    <th>level</th>
+                    <th>score</th>
+                    <th>date</th>
+                </thead>
+                <td class="no-score-saved" colspan="3">your score will be shown here!</td>
+            </table>
+            <!-- End ScoreSheet  -->
+        </div>
+        <!-- Start Scroll to top button  -->
+        <button class="scroll-top-btn">UP</button>
+        <!-- End Scroll to top button  -->
 
-            <!-- Start theme Changer button -->
-            <button class="theme-changer"><i class="gg-moon"></i></button>
-            <!-- End theme Changer button -->
+        <!-- Start theme Changer button -->
+        <button class="theme-changer"><i class="gg-moon"></i></button>
+        <!-- End theme Changer button -->
     </div>
-        <!-- End The Game  -->
-        
+    <!-- End The Game  -->
+
 
     <script>
-    // Setting Levels
-    const levels = {
-        "Easy": 5,
-        "Normal": 3,
-        "Hard": 2
+        // Setting Levels
+        const levels = {
+            "Easy": 5,
+            "Normal": 3,
+            "Hard": 2
         };
 
-    // Arrays Of Words
-    const easyWords = [
-        "Hello",
-        "Code",
-        "Town",
-        "Task",
-        "Scala",
-        "Destructuring",
-        "Funny",
-        "Roles",
-        "Test",
-        "Rust"
-    ];
-    
-    let normalWords = [
-        "Country",
-        "Testing",
-        "Dependencies",
-        "Internet",
-        "Documentation",
-        "Styling",
-        "Cascade",
-        "Runner",
-        "Working",
-        "Playing"
-    ];
+        // Arrays Of Words
+        const easyWords = [
+            "Hello",
+            "Code",
+            "Town",
+            "Task",
+            "Scala",
+            "Destructuring",
+            "Funny",
+            "Roles",
+            "Test",
+            "Rust"
+        ];
 
-    let hardWords = [
-        "Programming",
-        "Javascript",
-        "Coding",
-        "Leetcode",
-        "Github",
-        "Python",
-        "Linkedin",
-        "Paradigm",
-        "Twitter",
-        "Youtube"
-    ];
+        let normalWords = [
+            "Country",
+            "Testing",
+            "Dependencies",
+            "Internet",
+            "Documentation",
+            "Styling",
+            "Cascade",
+            "Runner",
+            "Working",
+            "Playing"
+        ];
 
-    
-    //Get elements
-    let selectLevels = document.getElementById("selectLevels");
-    let levelSpan = document.querySelector(".lvl");
-    let secs = document.querySelector(".seconds");
-    let timeLeft = document.querySelector(".time span");
-    let theWord = document.querySelector(".the-word");
-    let input = document.querySelector(".input");
-    let startBtn = document.querySelector(".start");
-    let upcomingWords = document.querySelector(".upcoming-words");
-    let score = document.querySelector(".got");
-    let total = document.querySelector(".total");
-    let finish = document.querySelector(".finish");
-    let gameInstructions = document.querySelector(".game-instructions");
-    
-    //Set default level and default values
-    let defaultLevel = "Easy";
-    let defaultSec = levels[defaultLevel];
+        let hardWords = [
+            "Programming",
+            "Javascript",
+            "Coding",
+            "Leetcode",
+            "Github",
+            "Python",
+            "Linkedin",
+            "Paradigm",
+            "Twitter",
+            "Youtube"
+        ];
 
-    let level = defaultLevel;
-    let arrLevel = easyWords;
 
-    total.innerHTML = easyWords.length;
-    secs.innerHTML = defaultSec;
+        //Get elements
+        let selectLevels = document.getElementById("selectLevels");
+        let levelSpan = document.querySelector(".lvl");
+        let secs = document.querySelector(".seconds");
+        let timeLeft = document.querySelector(".time span");
+        let theWord = document.querySelector(".the-word");
+        let input = document.querySelector(".input");
+        let startBtn = document.querySelector(".start");
+        let upcomingWords = document.querySelector(".upcoming-words");
+        let score = document.querySelector(".got");
+        let total = document.querySelector(".total");
+        let finish = document.querySelector(".finish");
+        let gameInstructions = document.querySelector(".game-instructions");
 
-    //Check if this reloading from playAgain button
-    window.onload = () => {
-        if (sessionStorage.getItem("replaying") === "true") {
-            level = sessionStorage.getItem("level");
-            selectLevels.value = level;
+        //Set default level and default values
+        let defaultLevel = "Easy";
+        let defaultSec = levels[defaultLevel];
+
+        let level = defaultLevel;
+        let arrLevel = easyWords;
+
+        total.innerHTML = easyWords.length;
+        secs.innerHTML = defaultSec;
+
+        //Check if this reloading from playAgain button
+        window.onload = () => {
+            if (sessionStorage.getItem("replaying") === "true") {
+                level = sessionStorage.getItem("level");
+                selectLevels.value = level;
+                secs.innerHTML = levels[level];
+                //Set the total words according to the level
+                if (level === "Normal") {
+                    total.innerHTML = normalWords.length;
+                    arrLevel = normalWords;
+                } else if (level === "Hard") {
+                    total.innerHTML = hardWords.length;
+                    arrLevel = hardWords;
+                }
+
+                if (sessionStorage.getItem("theme") === "dark") {
+                    body.classList.add("dark-mode");
+                    let themeChanger = document.querySelector(".theme-changer");
+                    themeChanger.innerHTML = "<i class='gg-sun'></i>";
+                }
+                sessionStorage.clear();
+                startBtn.click();
+            }
+        }
+
+        //While level is changing
+        selectLevels.onchange = function () {
+            //Get the level that chosen
+            level = this.value;
+            //Set the time per a word according to the level
             secs.innerHTML = levels[level];
+
             //Set the total words according to the level
             if (level === "Normal") {
                 total.innerHTML = normalWords.length;
@@ -481,475 +581,450 @@
                 total.innerHTML = hardWords.length;
                 arrLevel = hardWords;
             }
+        }
 
-            if (sessionStorage.getItem("theme") === "dark") {
-                body.classList.add("dark-mode");
-                let themeChanger = document.querySelector(".theme-changer");
-                themeChanger.innerHTML = "<i class='gg-sun'></i>";
+        //Disabled paste on the input
+        input.onpaste = () => {
+            return false;
+        }
+
+        //Start Button 
+        startBtn.onclick = function () {
+            this.remove();
+            input.focus();
+            generateWords();
+        }
+
+        function generateWords() {
+            //Get and show random word from the array
+            let word = arrLevel[Math.trunc(Math.random() * arrLevel.length)];
+            theWord.innerHTML = word
+
+            //Delete this word from the array
+            let indxOfTheWord = arrLevel.indexOf(word);
+            arrLevel.splice(indxOfTheWord, 1);
+
+            //Empty the upcoming-words div to get it ready for newly array
+            upcomingWords.innerHTML = "";
+
+            //Show Upcoming-Words
+            for (let i = 0; i < arrLevel.length; i++) {
+                let span = document.createElement("span");
+                let spanText = document.createTextNode(arrLevel[i]);
+                span.appendChild(spanText);
+                upcomingWords.appendChild(span);
             }
-            sessionStorage.clear();
-            startBtn.click();
+            startTheGame();
         }
-    }
-    
-    //While level is changing
-    selectLevels.onchange = function () {
-        //Get the level that chosen
-        level = this.value;
-        //Set the time per a word according to the level
-        secs.innerHTML = levels[level];
-        
-        //Set the total words according to the level
-        if (level === "Normal") {
-            total.innerHTML = normalWords.length;
-            arrLevel = normalWords;
-        } else if (level === "Hard") {
-            total.innerHTML = hardWords.length; 
-            arrLevel = hardWords;
-        }
-    }
 
-    //Disabled paste on the input
-    input.onpaste = () => {
-        return false;
-    }
-    
-    //Start Button 
-    startBtn.onclick = function () {
-        this.remove();
-        input.focus();
-        generateWords();
-    }
-    
-    function generateWords() {
-        //Get and show random word from the array
-        let word = arrLevel[Math.trunc(Math.random() * arrLevel.length)];
-        theWord.innerHTML = word
-        
-        //Delete this word from the array
-        let indxOfTheWord = arrLevel.indexOf(word);
-        arrLevel.splice(indxOfTheWord, 1);
+        //Set Array to store the score and the date in localStorage
+        let savedScore = [];
 
-        //Empty the upcoming-words div to get it ready for newly array
-        upcomingWords.innerHTML = "";
-        
-        //Show Upcoming-Words
-        for (let i = 0; i < arrLevel.length; i++) {
-            let span = document.createElement("span");
-            let spanText = document.createTextNode(arrLevel[i]);
-            span.appendChild(spanText);
-            upcomingWords.appendChild(span);
-        }
-        startTheGame();
-    }
-    
-    //Set Array to store the score and the date in localStorage
-    let savedScore = [];
-
-    function startTheGame() {
-        if ((arrLevel.length + 1) == total.innerHTML) { //Check if this the first Time of playing
-            let bonusSecondsForFirstTime = 3;
-            timeLeft.innerHTML = levels[level] + bonusSecondsForFirstTime;
-        } else {
-            timeLeft.innerHTML = levels[level];
-        }
-        let intervalId = setInterval(() => {
-            timeLeft.innerHTML--;
-            if (timeLeft.innerHTML === "0") { //When time left is finished
-                clearInterval(intervalId);
-
-                if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && arrLevel.length) {
-                    input.value = "";
-                    score.innerHTML++;
-                    generateWords();
-                } else if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && !arrLevel.length) {
-                    //End Game
-                    upcomingWords.remove();
-                    score.innerHTML++;
-
-                    let div = document.createElement("div");
-                    let divText = document.createTextNode("Congrats");
-                    div.appendChild(divText);
-                    div.className = "success";
-                    finish.appendChild(div);
-
-                    //Create play again button
-                    let playAgainBtn = document.createElement("button");
-                    let btnText = document.createTextNode("Play Again");
-                    playAgainBtn.appendChild(btnText);
-                    playAgainBtn.className = "play-again";
-                    finish.appendChild(playAgainBtn);
-
-                    playAgainBtn.onclick = function (){
-                        sessionStorage.setItem("replaying", "true");
-                        sessionStorage.setItem("level", selectLevels.value);
-                        location.reload();
-                    }
-                    
-                    //Set score with the date to localStorage
-                    if (localStorage.length) { //if there is score saved in localStorage
-                        let scores = JSON.parse(localStorage.getItem("scores"));
-                        scores.push([level , score.innerHTML + " / " + total.innerHTML , new Date()]);
-                        localStorage.setItem("scores", JSON.stringify(scores));
-                    } else { //if not
-                        savedScore.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
-                        localStorage.setItem("scores", JSON.stringify(savedScore));
-                    }
-                } else{ //If array is finished but the input is false
-                    upcomingWords.remove();
-                    
-                    let div = document.createElement("div");
-                    let divText = document.createTextNode("Game Over");
-                    div.appendChild(divText);
-                    div.className = "failed";
-                    finish.appendChild(div);
-                    
-                    //Create play again button
-                    let playAgainBtn = document.createElement("button");
-                    playAgainBtn.className = "play-again";
-                    let btnText = document.createTextNode("Play Again");
-                    playAgainBtn.appendChild(btnText);
-                    
-                    finish.appendChild(playAgainBtn);
-                    
-                    playAgainBtn.onclick = function () {
-                        sessionStorage.setItem("replaying" , "true");
-                        sessionStorage.setItem("level" , selectLevels.value);
-                        sessionStorage.setItem("theme", body.classList.contains("dark-mode")? "dark" : "light");
-                        location.reload();
-                    }
-                    
-                    //Set score with the date to localStorage
-                    if (localStorage.length) { //if there is score saved in localStorage
-                        let scores = JSON.parse(localStorage.getItem("scores"));
-                        scores.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
-                        localStorage.setItem("scores", JSON.stringify(scores));
-                    } else { //if not
-                    savedScore.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
-                    localStorage.setItem("scores", JSON.stringify(savedScore));
-                    }
-                }
-            } else{ //To check before time left reach to 0
-                    if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && !arrLevel.length) {
-                    //End Game
-                    upcomingWords.remove();
-                    score.innerHTML++;
-                    
-                    let div = document.createElement("div");
-                    let divText = document.createTextNode("Congrats");
-                    div.appendChild(divText);
-                    div.className = "success";
-                    finish.appendChild(div);
-
-                    //Create play again button
-                    let playAgainBtn = document.createElement("button");
-                    playAgainBtn.className = "play-again";
-                    let btnText = document.createTextNode("Play Again");
-                    playAgainBtn.appendChild(btnText);
-                    
-                    finish.appendChild(playAgainBtn);
-
-                    playAgainBtn.onclick = function () {
-                        sessionStorage.setItem("replaying", "true");
-                        sessionStorage.setItem("level", selectLevels.value);
-                        location.reload();
-                    }
-
-                    //Stop the timer
-                    clearInterval(intervalId);
-
-                    //Set score with the date to localStorage
-                    if (localStorage.length) { //if there is score saved in localStorage
-                        let scores = JSON.parse(localStorage.getItem("scores"));
-                        scores.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
-                        localStorage.setItem("scores", JSON.stringify(scores));
-                    } else { //if not
-                        savedScore.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
-                        localStorage.setItem("scores", JSON.stringify(savedScore));
-                    }
-                } else if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && arrLevel.length) {
-                    input.value = "";
-                    score.innerHTML++;
-
-                    clearInterval(intervalId);
-
-                    generateWords();
-                }
-            }
-        }, 1000);
-    }
-
-    //Set game instructions table
-    if (Object.keys(levels).length) {
-        //Create the table
-        let table = document.createElement("table");
-        let thead = document.createElement("thead");
-        let tbody = document.createElement("tbody");
-        let th1 = document.createElement("th");
-        let th2 = document.createElement("th");
-        let th3 = document.createElement("th");
-        let tr = document.createElement("tr");
-        let td = document.createElement("td");
-
-        //Apply style on the table
-        table.setAttribute("border" , 1);
-        tbody.style.textAlign = "center";
-        th2.style.padding = "0 5px";
-        th3.style.padding = "0 5px";
-
-
-        th1.appendChild(document.createTextNode("Level"));
-        th2.appendChild(document.createTextNode("Seconds For A Word"));
-        th3.appendChild(document.createTextNode("Total Words"));
-
-        thead.appendChild(th1);
-        thead.appendChild(th2);
-        thead.appendChild(th3);
-
-        table.appendChild(thead);
-
-        for (const lvl in levels) {
-            let tr = document.createElement("tr");
-            let td1 = document.createElement("td");
-            let td2 = document.createElement("td");
-            let td3 = document.createElement("td");
-
-            td1.style.padding = "0 5px";
-
-            let td1Text = document.createTextNode(lvl);
-            td1.appendChild(td1Text);
-            tr.appendChild(td1);
-            
-            let td2Text = document.createTextNode(levels[lvl]);
-            td2.appendChild(td2Text);
-            tr.appendChild(td2);
-
-            if (lvl === "Normal") {
-            let td3Text = document.createTextNode(normalWords.length);
-            td3.appendChild(td3Text);
-            tr.appendChild(td3);
-            } else if (lvl === "Hard") {
-                let td3Text = document.createTextNode(hardWords.length);
-                td3.appendChild(td3Text);
-                tr.appendChild(td3);
+        function startTheGame() {
+            if ((arrLevel.length + 1) == total.innerHTML) { //Check if this the first Time of playing
+                let bonusSecondsForFirstTime = 3;
+                timeLeft.innerHTML = levels[level] + bonusSecondsForFirstTime;
             } else {
-                let td3Text = document.createTextNode(easyWords.length);
-                td3.appendChild(td3Text);
-                tr.appendChild(td3);
+                timeLeft.innerHTML = levels[level];
             }
-            
-            tbody.appendChild(tr);
-        }
-        table.appendChild(tbody);
-        gameInstructions.appendChild(table);
-    }
-    
-    function printScoresTableFromLocalStorage() {
-        //Remove the old body in the scoreSheet if found
-        let targetTbody = document.querySelector(".score-sheet tbody");
-        targetTbody.remove();
+            let intervalId = setInterval(() => {
+                timeLeft.innerHTML--;
+                if (timeLeft.innerHTML === "0") { //When time left is finished
+                    clearInterval(intervalId);
 
-        //Set Time Zne for Egypt
-        let timeZone = 2;
-    
-        //create a row
-        let scoreSheet = document.querySelector(".score-sheet");
-        let tbody = document.createElement("tbody");
-        
-        
-        let scoreSheetData = JSON.parse(localStorage.getItem("scores"));
-        scoreSheetData.reverse().forEach(e => {
-            let tr = document.createElement("tr");
-            let td1 = document.createElement("td");
-            let td2 = document.createElement("td");
-            let td3 = document.createElement("td");
-            let br = document.createElement("br");
+                    if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && arrLevel.length) {
+                        input.value = "";
+                        score.innerHTML++;
+                        generateWords();
+                    } else if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && !arrLevel.length) {
+                        //End Game
+                        upcomingWords.remove();
+                        score.innerHTML++;
 
-            td3.className = "date";
+                        let div = document.createElement("div");
+                        let divText = document.createTextNode("Congrats");
+                        div.appendChild(divText);
+                        div.className = "success";
+                        finish.appendChild(div);
 
-            //get the Level from LocalStorage
-            let levelText = document.createTextNode(e[0]);
-            td1.appendChild(levelText);
-            //get the Score from LocalStorage
-            let scoreText = document.createTextNode(e[1]);
-            td2.appendChild(scoreText);
-            //get the date from LocalStorage and add the def of time zone to the time
-            let time = e[2].slice(12, 18) + timeZone;
-            let date = e[2].slice(0, 10);
-            let timeText = document.createTextNode(time);
-            let dateText = document.createTextNode(date);
+                        //Create play again button
+                        let playAgainBtn = document.createElement("button");
+                        let btnText = document.createTextNode("Play Again");
+                        playAgainBtn.appendChild(btnText);
+                        playAgainBtn.className = "play-again";
+                        finish.appendChild(playAgainBtn);
 
-            td3.appendChild(timeText);
-            td3.appendChild(br);
-            td3.appendChild(dateText);
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            tr.appendChild(td3);
-            tbody.appendChild(tr);
-            scoreSheet.appendChild(tbody);
-        });
-    }
-    //Insert stored data into the ScoreSheet table
-    if (localStorage.length) {
-        document.querySelector(".no-score-saved").remove();
-        //Call the function to print stored data that sorted by the date as desc
-        printScoresTableFromLocalStorage();
-    }
+                        playAgainBtn.onclick = function () {
+                            sessionStorage.setItem("replaying", "true");
+                            sessionStorage.setItem("level", selectLevels.value);
+                            location.reload();
+                        }
 
-    //Sort the data in score sheet by Level
-    let levelBtn = document.querySelector(".score-sheet th:first-child");
-    levelBtn.onclick = (e) => {
-        if (!document.querySelector(".no-score-saved")) {
-            let levels = document.querySelectorAll(".score-sheet tbody tr td:first-child");
-            
-            let sortedEasyLevel = [];
-            let sortedNormalLevel = [];
-            let sortedHardLevel = [];
+                        //Set score with the date to localStorage
+                        if (localStorage.length) { //if there is score saved in localStorage
+                            let scores = JSON.parse(localStorage.getItem("scores"));
+                            scores.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
+                            localStorage.setItem("scores", JSON.stringify(scores));
+                        } else { //if not
+                            savedScore.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
+                            localStorage.setItem("scores", JSON.stringify(savedScore));
+                        }
+                    } else { //If array is finished but the input is false
+                        upcomingWords.remove();
 
-            //Store sorted rows
-            levels.forEach(e => {
-                if (e.innerHTML == "Easy") {
-                    let targetRow = e.parentElement;
-                    sortedEasyLevel.push(e.parentElement);
-                } else if (e.innerHTML == "Normal") {
-                    let targetRow = e.parentElement;
-                    sortedNormalLevel.push(targetRow);
-                } else {
-                    let targetRow = e.parentElement;
-                    sortedHardLevel.push(targetRow);
+                        let div = document.createElement("div");
+                        let divText = document.createTextNode("Game Over");
+                        div.appendChild(divText);
+                        div.className = "failed";
+                        finish.appendChild(div);
+
+                        //Create play again button
+                        let playAgainBtn = document.createElement("button");
+                        playAgainBtn.className = "play-again";
+                        let btnText = document.createTextNode("Play Again");
+                        playAgainBtn.appendChild(btnText);
+
+                        finish.appendChild(playAgainBtn);
+
+                        playAgainBtn.onclick = function () {
+                            sessionStorage.setItem("replaying", "true");
+                            sessionStorage.setItem("level", selectLevels.value);
+                            sessionStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
+                            location.reload();
+                        }
+
+                        //Set score with the date to localStorage
+                        if (localStorage.length) { //if there is score saved in localStorage
+                            let scores = JSON.parse(localStorage.getItem("scores"));
+                            scores.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
+                            localStorage.setItem("scores", JSON.stringify(scores));
+                        } else { //if not
+                            savedScore.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
+                            localStorage.setItem("scores", JSON.stringify(savedScore));
+                        }
+                    }
+                } else { //To check before time left reach to 0
+                    if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && !arrLevel.length) {
+                        //End Game
+                        upcomingWords.remove();
+                        score.innerHTML++;
+
+                        let div = document.createElement("div");
+                        let divText = document.createTextNode("Congrats");
+                        div.appendChild(divText);
+                        div.className = "success";
+                        finish.appendChild(div);
+
+                        //Create play again button
+                        let playAgainBtn = document.createElement("button");
+                        playAgainBtn.className = "play-again";
+                        let btnText = document.createTextNode("Play Again");
+                        playAgainBtn.appendChild(btnText);
+
+                        finish.appendChild(playAgainBtn);
+
+                        playAgainBtn.onclick = function () {
+                            sessionStorage.setItem("replaying", "true");
+                            sessionStorage.setItem("level", selectLevels.value);
+                            location.reload();
+                        }
+
+                        //Stop the timer
+                        clearInterval(intervalId);
+
+                        //Set score with the date to localStorage
+                        if (localStorage.length) { //if there is score saved in localStorage
+                            let scores = JSON.parse(localStorage.getItem("scores"));
+                            scores.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
+                            localStorage.setItem("scores", JSON.stringify(scores));
+                        } else { //if not
+                            savedScore.push([level, score.innerHTML + " / " + total.innerHTML, new Date()]);
+                            localStorage.setItem("scores", JSON.stringify(savedScore));
+                        }
+                    } else if (input.value.toLowerCase() === theWord.innerHTML.toLowerCase() && arrLevel.length) {
+                        input.value = "";
+                        score.innerHTML++;
+
+                        clearInterval(intervalId);
+
+                        generateWords();
+                    }
                 }
-            });
+            }, 1000);
+        }
 
-            //Merge Arrays with the right order
-            let sortedLevels = [...sortedHardLevel, ...sortedNormalLevel, ...sortedEasyLevel];
+        //Set game instructions table
+        if (Object.keys(levels).length) {
+            //Create the table
+            let table = document.createElement("table");
+            let thead = document.createElement("thead");
+            let tbody = document.createElement("tbody");
+            let th1 = document.createElement("th");
+            let th2 = document.createElement("th");
+            let th3 = document.createElement("th");
+            let tr = document.createElement("tr");
+            let td = document.createElement("td");
 
-            //Remove the old body of the table to replace the new one
-            let targetScoreSheet = document.querySelector(".score-sheet");
+            //Apply style on the table
+            table.setAttribute("border", 1);
+            tbody.style.textAlign = "center";
+            th2.style.padding = "0 5px";
+            th3.style.padding = "0 5px";
+
+
+            th1.appendChild(document.createTextNode("Level"));
+            th2.appendChild(document.createTextNode("Seconds For A Word"));
+            th3.appendChild(document.createTextNode("Total Words"));
+
+            thead.appendChild(th1);
+            thead.appendChild(th2);
+            thead.appendChild(th3);
+
+            table.appendChild(thead);
+
+            for (const lvl in levels) {
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                let td3 = document.createElement("td");
+
+                td1.style.padding = "0 5px";
+
+                let td1Text = document.createTextNode(lvl);
+                td1.appendChild(td1Text);
+                tr.appendChild(td1);
+
+                let td2Text = document.createTextNode(levels[lvl]);
+                td2.appendChild(td2Text);
+                tr.appendChild(td2);
+
+                if (lvl === "Normal") {
+                    let td3Text = document.createTextNode(normalWords.length);
+                    td3.appendChild(td3Text);
+                    tr.appendChild(td3);
+                } else if (lvl === "Hard") {
+                    let td3Text = document.createTextNode(hardWords.length);
+                    td3.appendChild(td3Text);
+                    tr.appendChild(td3);
+                } else {
+                    let td3Text = document.createTextNode(easyWords.length);
+                    td3.appendChild(td3Text);
+                    tr.appendChild(td3);
+                }
+
+                tbody.appendChild(tr);
+            }
+            table.appendChild(tbody);
+            gameInstructions.appendChild(table);
+        }
+
+        function printScoresTableFromLocalStorage() {
+            //Remove the old body in the scoreSheet if found
             let targetTbody = document.querySelector(".score-sheet tbody");
             targetTbody.remove();
 
-            let newTbody = document.createElement("tbody");
+            //Set Time Zne for Egypt
+            let timeZone = 2;
 
-            //Add sorted rows to the new body
-            sortedLevels.forEach(e => {
-                newTbody.appendChild(e);
+            //create a row
+            let scoreSheet = document.querySelector(".score-sheet");
+            let tbody = document.createElement("tbody");
+
+
+            let scoreSheetData = JSON.parse(localStorage.getItem("scores"));
+            scoreSheetData.reverse().forEach(e => {
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                let td3 = document.createElement("td");
+                let br = document.createElement("br");
+
+                td3.className = "date";
+
+                //get the Level from LocalStorage
+                let levelText = document.createTextNode(e[0]);
+                td1.appendChild(levelText);
+                //get the Score from LocalStorage
+                let scoreText = document.createTextNode(e[1]);
+                td2.appendChild(scoreText);
+                //get the date from LocalStorage and add the def of time zone to the time
+                let time = e[2].slice(12, 18) + timeZone;
+                let date = e[2].slice(0, 10);
+                let timeText = document.createTextNode(time);
+                let dateText = document.createTextNode(date);
+
+                td3.appendChild(timeText);
+                td3.appendChild(br);
+                td3.appendChild(dateText);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tbody.appendChild(tr);
+                scoreSheet.appendChild(tbody);
             });
-            //Add the new body to the table
-            targetScoreSheet.appendChild(newTbody);
         }
-    }
+        //Insert stored data into the ScoreSheet table
+        if (localStorage.length) {
+            document.querySelector(".no-score-saved").remove();
+            //Call the function to print stored data that sorted by the date as desc
+            printScoresTableFromLocalStorage();
+        }
 
-    //Sort the data in score sheet by Score
-    let scoreBtn = document.querySelector(".score-sheet th:nth-child(2)");
-    scoreBtn.onclick = () => {
-        if (!document.querySelector(".no-score-saved")) {
-            let unsortedScores = document.querySelectorAll(".score-sheet tbody tr td:nth-child(2)");
-            
-            //Get the scores and stor theme in the sortedValues array
-            let sortedValues = [];
-            unsortedScores.forEach(e => {
-                sortedValues.push(e.innerHTML[0])
-            });
-            //Sort Values as desc
-            sortedValues.sort().reverse();
+        //Sort the data in score sheet by Level
+        let levelBtn = document.querySelector(".score-sheet th:first-child");
+        levelBtn.onclick = (e) => {
+            if (!document.querySelector(".no-score-saved")) {
+                let levels = document.querySelectorAll(".score-sheet tbody tr td:first-child");
 
-            //Set array to store scores in
-            let sortedScores = [];
-            //Store rows that their scores are sorted to storedScore array
-            sortedValues.forEach(val => {
-                unsortedScores.forEach(e => {
-                    if (val == e.innerHTML[0]) {
-                        sortedScores.push(e.parentElement);
+                let sortedEasyLevel = [];
+                let sortedNormalLevel = [];
+                let sortedHardLevel = [];
+
+                //Store sorted rows
+                levels.forEach(e => {
+                    if (e.innerHTML == "Easy") {
+                        let targetRow = e.parentElement;
+                        sortedEasyLevel.push(e.parentElement);
+                    } else if (e.innerHTML == "Normal") {
+                        let targetRow = e.parentElement;
+                        sortedNormalLevel.push(targetRow);
+                    } else {
+                        let targetRow = e.parentElement;
+                        sortedHardLevel.push(targetRow);
                     }
                 });
-            });
-            
-            //Remove the old body of the table to replace the new one
-            let targetScoreSheet = document.querySelector(".score-sheet");
-            let targetTbody = document.querySelector(".score-sheet tbody");
-            targetTbody.remove();
 
-            let newTbody = document.createElement("tbody");
+                //Merge Arrays with the right order
+                let sortedLevels = [...sortedHardLevel, ...sortedNormalLevel, ...sortedEasyLevel];
 
-            //Add sorted rows to the new body
-            sortedScores.forEach(e => {
-                newTbody.appendChild(e)
-            });
-            //Add the new body to the table
-            targetScoreSheet.appendChild(newTbody)
+                //Remove the old body of the table to replace the new one
+                let targetScoreSheet = document.querySelector(".score-sheet");
+                let targetTbody = document.querySelector(".score-sheet tbody");
+                targetTbody.remove();
+
+                let newTbody = document.createElement("tbody");
+
+                //Add sorted rows to the new body
+                sortedLevels.forEach(e => {
+                    newTbody.appendChild(e);
+                });
+                //Add the new body to the table
+                targetScoreSheet.appendChild(newTbody);
+            }
         }
-    }
 
-    //Sort the data in scoreSheet by the Date
-    let dateBtn = document.querySelector(".score-sheet th:last-child");
-    dateBtn.onclick = () => {
-        if (!document.querySelector(".no-score-saved")) {
-            printScoresTableFromLocalStorage();
+        //Sort the data in score sheet by Score
+        let scoreBtn = document.querySelector(".score-sheet th:nth-child(2)");
+        scoreBtn.onclick = () => {
+            if (!document.querySelector(".no-score-saved")) {
+                let unsortedScores = document.querySelectorAll(".score-sheet tbody tr td:nth-child(2)");
 
-//Before create that function i used this way to get the result//
-        //     let unsortedDates = document.querySelectorAll(".score-sheet tbody tr td:last-child");
-        //     //Get the scores and stor theme in the sortedValues array
-        //     let sortedValues = [];           
-        //     unsortedDates.forEach(e => {
-        //         let dateContent = e.innerHTML.replace("<br>", " ");
-        //         sortedValues.push(dateContent);
-        //     });
-        //     //Sort Values as desc
-        //     sortedValues.sort().reverse();
+                //Get the scores and stor theme in the sortedValues array
+                let sortedValues = [];
+                unsortedScores.forEach(e => {
+                    sortedValues.push(e.innerHTML[0])
+                });
+                //Sort Values as desc
+                sortedValues.sort().reverse();
 
-        //     //Set array to store Dates
-        //     let sortedDates = [];
-        //     //Store rows that their dates are sorted to sortedDates array
-        //     sortedValues.forEach(val => {
-        //         unsortedDates.forEach(e => {
-        //             if (val == e.innerHTML.replace("<br>", " ")) {
-        //                 sortedDates.push(e.parentElement);
-        //             }
-        //         });
-        //     });
-            
-        //     //Remove the old body of the table to replace the new one
-        //     let targetScoreSheet = document.querySelector(".score-sheet");
-        // let targetTbody = document.querySelector(".score-sheet tbody");
-        // targetTbody.remove();
+                //Set array to store scores in
+                let sortedScores = [];
+                //Store rows that their scores are sorted to storedScore array
+                sortedValues.forEach(val => {
+                    unsortedScores.forEach(e => {
+                        if (val == e.innerHTML[0]) {
+                            sortedScores.push(e.parentElement);
+                        }
+                    });
+                });
 
-        //     let newTbody = document.createElement("tbody");
+                //Remove the old body of the table to replace the new one
+                let targetScoreSheet = document.querySelector(".score-sheet");
+                let targetTbody = document.querySelector(".score-sheet tbody");
+                targetTbody.remove();
 
-        //     //Add sorted rows to the new body
-        //     sortedDates.forEach(e => {
-        //         newTbody.appendChild(e)
-        //     });
-        //     //Add the new body to the table
-        //     targetScoreSheet.appendChild(newTbody)
+                let newTbody = document.createElement("tbody");
+
+                //Add sorted rows to the new body
+                sortedScores.forEach(e => {
+                    newTbody.appendChild(e)
+                });
+                //Add the new body to the table
+                targetScoreSheet.appendChild(newTbody)
+            }
         }
-    }
 
-    //ScrollTop button
-    let scrollTopBtn = document.querySelector(".scroll-top-btn");
-    // let show = document.querySelector("show");
+        //Sort the data in scoreSheet by the Date
+        let dateBtn = document.querySelector(".score-sheet th:last-child");
+        dateBtn.onclick = () => {
+            if (!document.querySelector(".no-score-saved")) {
+                printScoresTableFromLocalStorage();
 
-    window.onscroll = () => {
-        this.scrollY >= 200
-            ? scrollTopBtn.classList.add("show")
-            : scrollTopBtn.classList.remove("show");
-    };
+                //Before create that function i used this way to get the result//
+                //     let unsortedDates = document.querySelectorAll(".score-sheet tbody tr td:last-child");
+                //     //Get the scores and stor theme in the sortedValues array
+                //     let sortedValues = [];           
+                //     unsortedDates.forEach(e => {
+                //         let dateContent = e.innerHTML.replace("<br>", " ");
+                //         sortedValues.push(dateContent);
+                //     });
+                //     //Sort Values as desc
+                //     sortedValues.sort().reverse();
 
-    scrollTopBtn.onclick = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+                //     //Set array to store Dates
+                //     let sortedDates = [];
+                //     //Store rows that their dates are sorted to sortedDates array
+                //     sortedValues.forEach(val => {
+                //         unsortedDates.forEach(e => {
+                //             if (val == e.innerHTML.replace("<br>", " ")) {
+                //                 sortedDates.push(e.parentElement);
+                //             }
+                //         });
+                //     });
 
-    //Change Theme Button
-    let themeChanger = document.querySelector(".theme-changer");
-    let body = document.querySelector("body");
-    themeChanger.onclick = () => {
-        if (body.classList.contains("dark-mode")) {
-            themeChanger.innerHTML = "<i class='gg-moon'></i>";
-            body.classList.remove("dark-mode")
-        } else {
-            themeChanger.innerHTML = "<i class='gg-sun'></i>";
-            body.classList.add("dark-mode")
+                //     //Remove the old body of the table to replace the new one
+                //     let targetScoreSheet = document.querySelector(".score-sheet");
+                // let targetTbody = document.querySelector(".score-sheet tbody");
+                // targetTbody.remove();
+
+                //     let newTbody = document.createElement("tbody");
+
+                //     //Add sorted rows to the new body
+                //     sortedDates.forEach(e => {
+                //         newTbody.appendChild(e)
+                //     });
+                //     //Add the new body to the table
+                //     targetScoreSheet.appendChild(newTbody)
+            }
         }
-    };
+
+        //ScrollTop button
+        let scrollTopBtn = document.querySelector(".scroll-top-btn");
+        // let show = document.querySelector("show");
+
+        window.onscroll = () => {
+            this.scrollY >= 200
+                ? scrollTopBtn.classList.add("show")
+                : scrollTopBtn.classList.remove("show");
+        };
+
+        scrollTopBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        //Change Theme Button
+        let themeChanger = document.querySelector(".theme-changer");
+        let body = document.querySelector("body");
+        themeChanger.onclick = () => {
+            if (body.classList.contains("dark-mode")) {
+                themeChanger.innerHTML = "<i class='gg-moon'></i>";
+                body.classList.remove("dark-mode")
+            } else {
+                themeChanger.innerHTML = "<i class='gg-sun'></i>";
+                body.classList.add("dark-mode")
+            }
+        };
     </script>
 </body>
+
 </html>
