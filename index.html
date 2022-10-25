@@ -18,7 +18,7 @@
             --bg-msg: white;
             --word-color: black;
             --startBtn-bgColor : #009688;
-            --startBtn-bgColor-hover : #106059;
+            --startBtn-bgColor-hover : #108c81;
             --caret-color : #2196f3;
             --upcomingWords-bgColor: white;
             --control-color: black;
@@ -83,7 +83,8 @@
             background-color: var(--main-bgColor);
             min-height: 100vh;
         }
-        div{
+        div,
+        span{
             border-radius: 4px;
         }
         .container {
@@ -122,7 +123,8 @@
             border-radius: 8px;
             border-color: var(--second-color);
         }
-        select:focus{
+        select:focus,
+        .input:focus{
             outline: none;
         }
         select:checked{
@@ -164,9 +166,6 @@
             caret-color: var(--caret-color);
             text-transform: capitalize;
         }
-        .input:focus{
-            outline: none;
-        }
         .upcoming-words{
             padding: 25px;
             background-color: var(--upcomingWords-bgColor);
@@ -206,7 +205,7 @@
             color: red;
         }
         .success{
-            color: var(--main-color);
+            color: #0fd30f;
         }
         .play-again{
             margin-left: 15px;
@@ -253,7 +252,7 @@
             margin-top: 30px;
             border: 1px solid white;
             border-radius: 5px;
-            background-color: #1db8a9c2;
+            background-color: #03a9f4d1;
             color: #eee;
             text-align: center;
             box-shadow: 0px 2px 12px 3px #a2a2a2;
@@ -278,7 +277,7 @@
             border-right: 1px solid black;
         }
         .score-sheet thead th:hover{
-            background-color: #1db8a990;
+            background-color: ##00b0ff;
             cursor: pointer;
             padding-top: 0;
         }
@@ -364,11 +363,14 @@
                 <div class="finish"></div>
                 <div class="game-instructions">
                     <span>Game Instructions:</span>
-                    <p>- When you choose a level Or let the default level 
-                        and Start the Game, the counter will countdown to zero.(you have +3 seconds for the first word)</p>
+                    <p>- When you choose a level Or let the default level(Easy) 
+                        and Start the Game, the counter countdown to zero.(you have +3 seconds for the first word in every new play)</p>
+                    <p>- A set of words will appear to you based on the level you have chosen.</p>
                     <p>- If the counter finished before writing the word or you didn't wrote it right,
                         you lose!.</p>
-                        <p>- Your score, level and the date will be saved and you can see theme later.</p>
+                    <p>- Your score, level and the date will be saved in the score sheet table in the below and you can see them later.</p>
+                    <p>- The results in the score sheet table are arranged in descending order with respect to the date.</p>
+                    <p>- You can arrange the scores by (level - score - date) by clicking on any of them.</p>
                 </div>
                 <!-- Start ScoreSheet  -->
                 <table class="score-sheet">
@@ -407,19 +409,19 @@
         "Town",
         "Task",
         "Scala",
+        "Destructuring",
         "Funny",
-        "Coding",
         "Roles",
         "Test",
-        "Rust",
+        "Rust"
     ];
     
     let normalWords = [
         "Country",
         "Testing",
-        "Github",
+        "Dependencies",
         "Internet",
-        "Python",
+        "Documentation",
         "Styling",
         "Cascade",
         "Runner",
@@ -429,11 +431,11 @@
 
     let hardWords = [
         "Programming",
-        "Dependencies",
         "Javascript",
-        "Destructuring",
+        "Coding",
         "Leetcode",
-        "Documentation",
+        "Github",
+        "Python",
         "Linkedin",
         "Paradigm",
         "Twitter",
@@ -936,7 +938,7 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    //Change Them
+    //Change Theme Button
     let themeChanger = document.querySelector(".theme-changer");
     let body = document.querySelector("body");
     themeChanger.onclick = () => {
