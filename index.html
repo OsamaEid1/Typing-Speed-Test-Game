@@ -352,6 +352,9 @@
             text-transform: capitalize;
             font-size: 15px;
         }
+        .score-sheet tbody tr:hover{
+            background-color: #03a8f4a5;
+        }
 
         .score-sheet td {
             transition: 0.3s;
@@ -558,15 +561,14 @@
                     total.innerHTML = hardWords.length;
                     arrLevel = hardWords;
                 }
-
+                startBtn.click();
+                sessionStorage.removeItem("replaying");
+            }
                 if (sessionStorage.getItem("theme") === "dark") {
                     body.classList.add("dark-mode");
                     let themeChanger = document.querySelector(".theme-changer");
                     themeChanger.innerHTML = "<i class='gg-sun'></i>";
                 }
-                sessionStorage.clear();
-                startBtn.click();
-            }
         }
 
         //While level is changing
@@ -925,17 +927,17 @@
                 //Get the scores and stor theme in the sortedValues array
                 let sortedValues = [];
                 unsortedScores.forEach(e => {
-                    sortedValues.push(e.innerHTML[0])
+                    sortedValues.push(e.innerHTML.slice(0,2))
                 });
                 //Sort Values as desc
                 sortedValues.sort().reverse();
-
+                sortedValues.sort((a,b) => {return a==10? -1 : b==10? 1 : 0})
                 //Set array to store scores in
                 let sortedScores = [];
                 //Store rows that their scores are sorted to storedScore array
                 sortedValues.forEach(val => {
                     unsortedScores.forEach(e => {
-                        if (val == e.innerHTML[0]) {
+                        if (val == e.innerHTML.slice(0,2)) {
                             sortedScores.push(e.parentElement);
                         }
                     });
@@ -1021,10 +1023,12 @@
         themeChanger.onclick = () => {
             if (body.classList.contains("dark-mode")) {
                 themeChanger.innerHTML = "<i class='gg-moon'></i>";
-                body.classList.remove("dark-mode")
+                body.classList.remove("dark-mode");
+                sessionStorage.removeItem("theme");
             } else {
                 themeChanger.innerHTML = "<i class='gg-sun'></i>";
-                body.classList.add("dark-mode")
+                body.classList.add("dark-mode");
+                sessionStorage.setItem("theme" , "dark");
             }
         };
     </script>
