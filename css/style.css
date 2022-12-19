@@ -1,0 +1,424 @@
+/* Start Global Rules */
+:root {
+    --main-bgColor: #eee;
+    --second-color: #009688;
+    --main-bg: #eee;
+    --name-bgColor: #2196f3;
+    --name-color: white;
+    --msg-bgColor: white;
+    --bg-msg: white;
+    --word-color: black;
+    --startBtn-bgColor: #009688;
+    --startBtn-bgColor-hover: #108c81;
+    --caret-color: #2196f3;
+    --upcomingWords-bgColor: white;
+    --control-color: black;
+    --control-bgColor: white;
+    --bg-p: #eee;
+    --p-color: black;
+    --span-bgColor: #2196f3;
+    --span-color: white;
+    --playAgain-bgColor: #eee;
+    --playAgain-hover-bgColor: #2196f3;
+    --playAgain-hover-color: white;
+    --scroll-top-bgColor: white;
+    --scroll-top-color: black;
+    --border-btn-color: #2196f3;
+    --scroll-top-btn-hover-bgColor: #2196f3;
+    --scroll-top-btn-hover-color: white;
+    --theme-changer-bgColor: #333;
+    --theme-changer-color: white;
+}
+
+.dark-mode {
+    --main-bgColor: #333;
+    --second-color: #009688;
+    --main-bg: #000000b3;
+    --name-bgColor: black;
+    --name-color: #2196f3;
+    --bg-msg: black;
+    --msg-bgColor: #000000b3;
+    --msg-color: #2196f3;
+    --word-color: #eee;
+    --startBtn-bgColor: #2196f3;
+    --startBtn-bgColor-hover: #2d8ad6;
+    --caret-color: black;
+    --upcomingWords-bgColor: #000000b3;
+    --control-color: white;
+    --control-bgColor: #000000b3;
+    --bg-p: #000000b3;
+    --p-color: #a2a2a2;
+    --gameInstru-table: #333;
+    --span-bgColor: #2196f3;
+    --span-color: #eee;
+    --playAgain-bgColor: #333;
+    --playAgain-hover-bgColor: #000000b3;
+    --playAgain-hover-color: #009688;
+    --scroll-top-bgColor: #333;
+    --scroll-top-color: white;
+    --border-btn-color: #2196f3;
+    --scroll-top-btn-hover-bgColor: #2196f3;
+    --scroll-top-btn-hover-color: white;
+    --theme-changer-bgColor: white;
+    --theme-changer-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: var(--word-color);
+}
+
+.game {
+    background-color: var(--main-bgColor);
+    min-height: 100vh;
+}
+
+div,
+span {
+    border-radius: 4px;
+}
+
+.container {
+    margin: auto;
+    max-width: 900px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/*  Small  */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+
+/* End The Initial Game State */
+.name {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--name-color);
+    background-color: var(--name-bgColor);
+}
+
+.message {
+    text-align: center;
+    background-color: var(--msg-bgColor);
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 19px;
+}
+
+.message span {
+    font-weight: bold;
+}
+
+.message span::before {
+    content: "[";
+}
+
+.message span::after {
+    content: "]";
+}
+
+select {
+    color: var(--second-color);
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    border-color: var(--second-color);
+}
+
+select:focus,
+.input:focus {
+    outline: none;
+}
+
+select:checked {
+    text-align: left;
+}
+
+.seconds {
+    color: var(--second-color);
+}
+
+.start {
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--startBtn-bgColor);
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.start:hover {
+    background-color: var(--startBtn-bgColor-hover);
+}
+
+.the-word {
+    text-align: center;
+    color: #2196f3;
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: capitalize;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .the-word {
+        font-size: 40px;
+    }
+}
+/* End The Initial Game State */
+
+/* Start Input Field */
+.input {
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+    border-radius: 5px;
+    border-color: #2196f3;
+    border-width: 2px;
+    text-align: center;
+    font-size: 21px;
+    caret-color: var(--caret-color);
+    text-transform: capitalize;
+}
+/* End Input Field */
+
+/* Start Upcoming Words  */
+.upcoming-words {
+    padding: 25px;
+    background-color: var(--upcomingWords-bgColor);
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    user-select: none;
+}
+
+.upcoming-words span {
+    color: var(--span-color);
+    background-color: var(--span-bgColor);
+    margin: 4px;
+    padding: 5px;
+    border-radius: 4px;
+}
+/* End Upcoming Words  */
+
+/* Start Playing State  */
+.control {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--control-bgColor);
+    color: var(--control-color);
+    padding: 15px;
+}
+
+.control span {
+    color: var(--second-color);
+    font-weight: bold;
+}
+
+.finish {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.failed {
+    color: red;
+}
+
+.success {
+    color: #0fd30f;
+}
+/* End Playing State  */
+
+/* Start Play Again Button  */
+.play-again {
+    margin-left: 15px;
+    padding: 0 10px;
+    border: 1px solid #a2a2a2;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 27px;
+    color: #2196f3;
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: var(--playAgain-bgColor);
+}
+
+.play-again:hover {
+    background-color: var(--playAgain-hover-bgColor);
+    color: var(--playAgain-hover-color);
+    border: 1px solid var(--playAgain-hover-bgColor);
+}
+/* End Play Again Button  */
+
+/* Start Game Instructions  */
+table {
+    border-spacing: 0;
+}
+
+.game-instructions {
+    background: #bcbcbc3d;
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+.game-instructions span {
+    font-weight: bold;
+    font-size: 19px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.game-instructions p {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--p-color);
+    background-color: var(--bg-p);
+}
+
+.game-instructions table {
+    margin: 15px auto 0px;
+}
+/* End Game Instructions  */
+
+/* Start Score Sheet  */
+.score-sheet {
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #03a9f4d1;
+    color: #eee;
+    text-align: center;
+    box-shadow: 0px 2px 12px 3px #a2a2a2;
+    padding: 10px;
+    border: 0;
+}
+
+.score-sheet thead th {
+    font-weight: bold;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    letter-spacing: 0px;
+    transition: 0.5s;
+}
+
+.start,
+.score-sheet th {
+    user-select: none;
+}
+
+.score-sheet thead th:not(:last-child) {
+    border-right: 1px solid black;
+}
+
+.score-sheet thead th:hover {
+    background-color: #00b0ff;
+    cursor: pointer;
+    padding-top: 0;
+}
+
+.score-sheet tbody {
+    color: black;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+.score-sheet tbody tr:hover {
+    background-color: #03a8f4a5;
+}
+
+.score-sheet td {
+    transition: 0.3s;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.score-sheet tr:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.score-sheet td:not(:last-child) {
+    border-right: 1px solid black;
+}
+/* End Score Sheet  */
+
+/* Start Scroll To Top Button  */
+.scroll-top-btn {
+    color: var(--scroll-top-color);
+    background-color: var(--scroll-top-bgColor);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid var(--border-btn-color);
+    border-radius: 10px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: -100%;
+    transition: 0.3s;
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--scroll-top-btn-hover-bgColor);
+    color: var(--scroll-top-btn-hover-Color);
+}
+
+.show {
+    right: 20px;
+}
+/* End Scroll To Top Button  */
+
+/* Start Theme Changer  */
+.theme-changer {
+    width: 50px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+    cursor: pointer;
+    background-color: var(--theme-changer-bgColor);
+}
+
+.theme-changer i {
+    color: var(--theme-changer-color);
+    margin-left: 18px;
+}
+/* End Theme Changer  */
